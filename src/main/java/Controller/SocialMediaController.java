@@ -16,8 +16,16 @@ public class SocialMediaController {
      */
     public Javalin startAPI() {
         Javalin app = Javalin.create();
-        app.get("example-endpoint", this::exampleHandler);
 
+        app.post("/register", this::userRegistrationHandler);
+        app.post("/login", this::userLoginHandler);
+        app.post("/messages", this::createMessageHandler);
+        app.get("/messages", this::retrieveAllMessagesHandler);
+        app.get("/messages/{message_id}", this::retrieveMessagesByMessageIdHandler);
+        app.delete("/messages/{message_id}", this::deleteMessageByMessageIdHandler);
+        app.patch("/messages/{messages_id}", this::updateMessageTextHandler);
+        app.get("/accounts/{account_id}/messages", this::retrieveAllMessagesForUser);
+        
         return app;
     }
 
@@ -25,9 +33,63 @@ public class SocialMediaController {
      * This is an example handler for an example endpoint.
      * @param context The Javalin Context object manages information about both the HTTP request and response.
      */
-    private void exampleHandler(Context context) {
+    private void userRegistrationHandler(Context context) {
         context.json("sample text");
     }
 
+     /**
+     * This is an example handler for an example endpoint.
+     * @param context The Javalin Context object manages information about both the HTTP request and response.
+     */
+    private void userLoginHandler(Context context) {
+        context.json("sample text");
+    }
 
+     /**
+     * This is an example handler for an example endpoint.
+     * @param context The Javalin Context object manages information about both the HTTP request and response.
+     */
+    private void createMessageHandler(Context context) {
+        context.json("sample text");
+    }
+
+     /**
+     * This is an example handler for an example endpoint.
+     * @param context The Javalin Context object manages information about both the HTTP request and response.
+     */
+    private void retrieveAllMessagesHandler(Context context) {
+        context.json("sample text");
+    }
+
+     /**
+     * This is an example handler for an example endpoint.
+     * @param context The Javalin Context object manages information about both the HTTP request and response.
+     */
+    private void retrieveMessagesByMessageIdHandler(Context context) {
+        context.json("sample text");
+    }
+
+     /**
+     * This is an example handler for an example endpoint.
+     * @param context The Javalin Context object manages information about both the HTTP request and response.
+     */
+    private void deleteMessageByMessageIdHandler(Context context) {
+        context.json("sample text");
+    }
+
+     /**
+     * This is an example handler for an example endpoint.
+     * @param context The Javalin Context object manages information about both the HTTP request and response.
+     */
+    private void updateMessageTextHandler(Context context) {
+        context.json("sample text");
+    }
+
+     /**
+     * This is an example handler for an example endpoint.
+     * @param context The Javalin Context object manages information about both the HTTP request and response.
+     */
+    private void retrieveAllMessagesForUser(Context context) {
+        context.json("sample text");
+    }
 }
