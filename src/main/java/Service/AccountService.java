@@ -48,4 +48,7 @@ public class AccountService {
         }   
     }
     
+    public Account verifyAccount(Account account) {
+        return accountDAO.getAccountByUsernameAndPassword(account);
+    }
 }
