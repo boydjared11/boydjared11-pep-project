@@ -28,19 +28,18 @@ public class MessageService {
     }
     
     /**
-     * TODO: Use the FlightDAO to add a new flight to the database.
-     *
-     * This method should also return the added flight. A distinction should be made between *transient* and
-     * *persisted* objects - the *transient* flight Object given as the parameter will not contain the flight's id,
-     * because it is not yet a database record. When this method is used, it should return the full persisted flight,
-     * which will contain the flight's id. This way, any part of the application that uses this method has
-     * all information about the new flight, because knowing the new flight's ID is necessary. This means that the
-     * method should return the Flight returned by the flightDAO's insertFlight method, and not the flight provided by
+     * Uses the MessageDAO to add a new message to the database.
+     * This method should also return the added message. A distinction should be made between *transient* and
+     * *persisted* objects - the *transient* message Object given as the parameter will not contain the message's id,
+     * because it is not yet a database record. When this method is used, it should return the full persisted message,
+     * which will contain the message's id. This way, any part of the application that uses this method has
+     * all information about the new message, because knowing the new message's ID is necessary. This means that the
+     * method should return the Message returned by the messageDAO's insertMessage method, and not the message provided by
      * the parameter 'flight'.
      *
-     * @param flight an object representing a new Flight.
-     * @return the newly added flight if the add operation was successful, including the flight_id. We do this to
-     *         inform our provide the front-end client with information about the added Flight.
+     * @param flight an object representing a new Message.
+     * @return the newly added message if the add operation was successful, including the message_id. We do this to
+     *         inform and provide the front-end client with information about the added Message.
      */
     public Message addMessage(Message message) {
         if (message.getMessage_text() != "" & message.getMessage_text().length() < 255 & messageDAO.postedByRefersToRealExisitingUser(message.getPosted_by()) != null) {
@@ -51,10 +50,9 @@ public class MessageService {
     }
 
     /**
-     * TODO: Use the FlightDAO to retrieve a List containing all flights.
-     * You could use the flightDAO.getAllFlights method.
+     * Uses the MessageDAO to retrieve a List containing all messages.
      *
-     * @return all flights in the database.
+     * @return all messages in the database.
      */
     public List<Message> getAllMessages() {
         return messageDAO.getAllMessages();
@@ -71,15 +69,15 @@ public class MessageService {
     }
 
     /**
-     * TODO: Use the FlightDAO to update an existing flight from the database.
-     * You should first check that the flight ID already exists. To do this, you could use an if statement that checks
-     * if flightDAO.getFlightById returns null for the flight's ID, as this would indicate that the flight id does not
+     * Uses the MessageDAO to update an existing message from the database.
+     * First checks that the message ID already exists. To do this, an if statement is used that checks
+     * if messageDAO.getMessageByMessageId returns null for the message's ID, as this would indicate that the message id does not
      * exist.
      *
-     * @param flight_id the ID of the flight to be modified.
-     * @param flight an object containing all data that should replace the values contained by the existing flight_id.
-     *         the flight object does not contain a flight ID.
-     * @return the newly updated flight if the update operation was successful. Return null if the update operation was
+     * @param message an object containing all data that should replace the values contained by the existing message_id.
+     *         the message object does not contain a message ID.
+     * @param message_id the ID of the message to be modified.
+     * @return the newly updated message if the update operation was successful. Return null if the update operation was
      *         unsuccessful. We do this to inform our application about successful/unsuccessful operations. (eg, the
      *         user should have some insight if they attempted to edit a nonexistent flight.)
      */
@@ -93,10 +91,9 @@ public class MessageService {
     }
 
     /**
-     * TODO: Use the FlightDAO to retrieve a List containing all flights.
-     * You could use the flightDAO.getAllFlights method.
+     * Uses the MessageDAO to retrieve a List containing all messages posted by a particular user.
      *
-     * @return all flights in the database.
+     * @return all messages posted by a particular user in the database.
      */
     public List<Message> getAllMessagesForUser(int account_id) {
         return messageDAO.getAllMessagesForUser(account_id);

@@ -44,7 +44,6 @@ public class SocialMediaController {
     }
 
     /**
-     * This is an example handler for an example endpoint.
      * @param context The Javalin Context object manages information about both the HTTP request and response.
      * @throws JsonProcessingException
      */
@@ -60,7 +59,6 @@ public class SocialMediaController {
     }
 
      /**
-     * This is an example handler for an example endpoint.
      * @param context The Javalin Context object manages information about both the HTTP request and response.
      * @throws JsonProcessingException
      */
@@ -76,7 +74,6 @@ public class SocialMediaController {
     }
 
      /**
-     * This is an example handler for an example endpoint.
      * @param context The Javalin Context object manages information about both the HTTP request and response.
      * @throws JsonProcessingException
      */
@@ -92,7 +89,6 @@ public class SocialMediaController {
     }
 
      /**
-     * This is an example handler for an example endpoint.
      * @param context The Javalin Context object manages information about both the HTTP request and response.
      */
     private void retrieveAllMessagesHandler(Context context) {
@@ -100,7 +96,6 @@ public class SocialMediaController {
     }
 
      /**
-     * This is an example handler for an example endpoint.
      * @param context The Javalin Context object manages information about both the HTTP request and response.
      */
     private void retrieveMessageByMessageIdHandler(Context context) {
@@ -113,7 +108,6 @@ public class SocialMediaController {
     }
 
      /**
-     * This is an example handler for an example endpoint.
      * @param context The Javalin Context object manages information about both the HTTP request and response.
      */
     private void deleteMessageByMessageIdHandler(Context context) {
@@ -126,8 +120,8 @@ public class SocialMediaController {
     }
 
      /**
-     * This is an example handler for an example endpoint.
      * @param context The Javalin Context object manages information about both the HTTP request and response.
+     * @throws JsonProcessingException
      */
     private void updateMessageTextHandler(Context context) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
@@ -143,7 +137,6 @@ public class SocialMediaController {
     }
 
      /**
-     * This is an example handler for an example endpoint.
      * @param context The Javalin Context object manages information about both the HTTP request and response.
      */
     private void retrieveAllMessagesForUser(Context context) {
