@@ -139,6 +139,20 @@ public class MessageDAO {
         return null;
     }
 
+    public void deleteMessageByMessageId(int message_id) {
+        Connection connection = ConnectionUtil.getConnection();
+        try {
+            String sql = "DELETE FROM message WHERE message_id = ?;";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setInt(1, message_id);
+
+            preparedStatement.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+
     /**
      * TODO: Use the FlightDAO to update an existing flight from the database.
      * You should first check that the flight ID already exists. To do this, you could use an if statement that checks
@@ -162,7 +176,7 @@ public class MessageDAO {
             preparedStatement.setInt(2, message_id);
 
             preparedStatement.executeUpdate();
-        }catch (SQLException e) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
