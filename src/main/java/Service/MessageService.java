@@ -81,4 +81,14 @@ public class MessageService {
             return messageDAO.getMessageByMessageId(message_id);
         }
     }
+
+    /**
+     * TODO: Use the FlightDAO to retrieve a List containing all flights.
+     * You could use the flightDAO.getAllFlights method.
+     *
+     * @return all flights in the database.
+     */
+    public List<Message> getAllMessagesForUser(int account_id) {
+        return messageDAO.getAllMessagesForUser(account_id);
+    }
 }
