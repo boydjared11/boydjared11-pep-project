@@ -60,6 +60,10 @@ public class MessageService {
         return messageDAO.getAllMessages();
     }
 
+    public Message getMessageByMessageId(int message_id) {
+        return messageDAO.getMessageByMessageId(message_id);
+    }
+
     /**
      * TODO: Use the FlightDAO to update an existing flight from the database.
      * You should first check that the flight ID already exists. To do this, you could use an if statement that checks

@@ -35,7 +35,7 @@ public class SocialMediaController {
         app.post("/login", this::userLoginHandler);
         app.post("/messages", this::createMessageHandler);
         app.get("/messages", this::retrieveAllMessagesHandler);
-        app.get("/messages/{message_id}", this::retrieveMessagesByMessageIdHandler);
+        app.get("/messages/{message_id}", this::retrieveMessageByMessageIdHandler);
         app.delete("/messages/{message_id}", this::deleteMessageByMessageIdHandler);
         app.patch("/messages/{message_id}", this::updateMessageTextHandler);
         app.get("/accounts/{account_id}/messages", this::retrieveAllMessagesForUser);
@@ -103,8 +103,9 @@ public class SocialMediaController {
      * This is an example handler for an example endpoint.
      * @param context The Javalin Context object manages information about both the HTTP request and response.
      */
-    private void retrieveMessagesByMessageIdHandler(Context context) {
-        context.json("sample text");
+    private void retrieveMessageByMessageIdHandler(Context context) {
+        int message_id = Integer.parseInt(context.pathParam("message_id"));
+        context.json(messageService.getMessageByMessageId(message_id));
     }
 
      /**
