@@ -3,6 +3,8 @@ package Service;
 import Model.Message;
 import DAO.MessageDAO;
 
+import java.util.List;
+
 public class MessageService {
     MessageDAO messageDAO;
 
@@ -46,5 +48,15 @@ public class MessageService {
         } else {
             return null;
         }   
+    }
+
+    /**
+     * TODO: Use the FlightDAO to retrieve a List containing all flights.
+     * You could use the flightDAO.getAllFlights method.
+     *
+     * @return all flights in the database.
+     */
+    public List<Message> getAllMessages() {
+        return messageDAO.getAllMessages();
     }
 }
