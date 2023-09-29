@@ -133,7 +133,7 @@ public class MessageDAO {
                         rs.getString("message_text"), rs.getLong("time_posted_epoch"));
                 return message;
             }
-        } catch(SQLException e) {
+        } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
         return null;

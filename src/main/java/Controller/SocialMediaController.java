@@ -105,7 +105,11 @@ public class SocialMediaController {
      */
     private void retrieveMessageByMessageIdHandler(Context context) {
         int message_id = Integer.parseInt(context.pathParam("message_id"));
-        context.json(messageService.getMessageByMessageId(message_id));
+        if (messageService.getMessageByMessageId(message_id) == null) {
+            context.status(200);
+        } else {
+            context.json(messageService.getMessageByMessageId(message_id));
+        }
     }
 
      /**
@@ -114,7 +118,11 @@ public class SocialMediaController {
      */
     private void deleteMessageByMessageIdHandler(Context context) {
         int message_id = Integer.parseInt(context.pathParam("message_id"));
-        context.json(messageService.deleteMessageByMessageId(message_id));
+        if (messageService.getMessageByMessageId(message_id) == null) {
+            context.status(200);
+        } else {
+            context.json(messageService.deleteMessageByMessageId(message_id));
+        }
     }
 
      /**
@@ -127,9 +135,9 @@ public class SocialMediaController {
         int message_id = Integer.parseInt(context.pathParam("message_id"));
         Message updatedMessage = messageService.updateMessage(message, message_id);
         System.out.println(updatedMessage);
-        if(updatedMessage == null){
+        if (updatedMessage == null) {
             context.status(400);
-        }else{
+        } else {
             context.json(mapper.writeValueAsString(updatedMessage));
         }
     }
